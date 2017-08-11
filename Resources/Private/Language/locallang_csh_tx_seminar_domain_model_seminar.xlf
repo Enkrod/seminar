@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-11T14:45:25Z" product-name="seminar">
+		<header/>
+		<body>
+			<trans-unit id="tx_seminar_domain_model_seminars">
+				<source>Seminars</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminars.description">
+				<source>This Extension shows a list of Seminars including a single view and a list of events</source>
+			</trans-unit>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="subtitle.description">
+				<source>subtitle</source>
+			</trans-unit>
+			<trans-unit id="teaser.description">
+				<source>teaser</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="std_price.description">
+				<source>stdPrice</source>
+			</trans-unit>
+			<trans-unit id="std_amount.description">
+				<source>stdAmount</source>
+			</trans-unit>
+			<trans-unit id="type.description">
+				<source>type</source>
+			</trans-unit>
+			<trans-unit id="section.description">
+				<source>section</source>
+			</trans-unit>
+			<trans-unit id="category.description">
+				<source>category</source>
+			</trans-unit>
+			<trans-unit id="events.description">
+				<source>events</source>
+			</trans-unit>
+			<trans-unit id="std_place.description">
+				<source>stdPlace</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

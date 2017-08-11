@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-11T14:45:25Z" product-name="seminar">
+		<header/>
+		<body>
+			<trans-unit id="tx_seminar_domain_model_seminars">
+				<source>Seminars</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminars.description">
+				<source>This Extension shows a list of Seminars including a single view and a list of events</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar">
+				<source>Seminar</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.std_price">
+				<source>Std Price</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.std_amount">
+				<source>Std Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.section">
+				<source>Section</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.events">
+				<source>Events</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.std_place">
+				<source>Std Place</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_event">
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_event.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_event.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_event.amount">
+				<source>Amount</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_event.place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_type.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_type.color">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_section">
+				<source>Section</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_section.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.postal_code">
+				<source>Postal Code</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.locality">
+				<source>Locality</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_place.description">
+				<source>Description</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
