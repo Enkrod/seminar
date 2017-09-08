@@ -8,7 +8,7 @@ namespace Streit\Seminar\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2017 Sebastian Wolfertz &lt;S.Wolfertz@Streit-Online.de&gt;, Streit GmbH
+ *  (c) 2017 Sebastian Wolfertz <S.Wolfertz@Streit-Online.de>, Streit GmbH
  *
  ***/
 
@@ -17,115 +17,202 @@ namespace Streit\Seminar\Domain\Model;
  */
 class Event extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    /**
-     * date
-     *
-     * @var \DateTime
-     */
-    protected $date = null;
+	/**
+	 * title
+	 *
+	 * @var string
+	 */
+	protected $title = '';
 
-    /**
-     * price
-     *
-     * @var float
-     */
-    protected $price = 0.0;
+	/**
+	 * date
+	 *
+	 * @var int
+	 */
+	protected $date = null;
 
-    /**
-     * amount
-     *
-     * @var string
-     */
-    protected $amount = '';
 
-    /**
-     * place
-     *
-     * @var \Streit\Seminar\Domain\Model\Place
-     */
-    protected $place = null;
+	/**
+	 * price
+	 *
+	 * @var string
+	 */
+	protected $price = '';
 
-    /**
-     * Returns the date
-     *
-     * @return \DateTime $date
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
+	/**
+	 * amount
+	 *
+	 * @var string
+	 */
+	protected $amount = '';
 
-    /**
-     * Sets the date
-     *
-     * @param \DateTime $date
-     * @return void
-     */
-    public function setDate(\DateTime $date)
-    {
-        $this->date = $date;
-    }
+	/**
+	 * location
+	 *
+	 * @var \Streit\Seminar\Domain\Model\Location
+	 */
+	protected $location = null;
 
-    /**
-     * Returns the price
-     *
-     * @return float $price
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
 
-    /**
-     * Sets the price
-     *
-     * @param float $price
-     * @return void
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    }
+	/**
+	 * series
+	 *
+	 * @var \Streit\Seminar\Domain\Model\Series
+	 */
+	protected $series = null;
 
-    /**
-     * Returns the amount
-     *
-     * @return string $amount
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
 
-    /**
-     * Sets the amount
-     *
-     * @param string $amount
-     * @return void
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-    }
+	/**
+	 * comment
+	 *
+	 * @var string
+	 */
+	protected $comment = '';
+	
+	/**
+	 * Returns the title
+	 *
+	 * @return string $title
+	 */
+	public function getTitle()
+	{
+		return $this->title;
+	}
 
-    /**
-     * Returns the place
-     *
-     * @return \Streit\Seminar\Domain\Model\Place $place
-     */
-    public function getPlace()
-    {
-        return $this->place;
-    }
+	/**
+	 * Sets the title
+	 *
+	 * @param string $title
+	 *
+	 * @return void
+	 */
+	public function setTitle($title)
+	{
+		$this->title = $title;
+	}
 
-    /**
-     * Sets the place
-     *
-     * @param \Streit\Seminar\Domain\Model\Place $place
-     * @return void
-     */
-    public function setPlace(\Streit\Seminar\Domain\Model\Place $place)
-    {
-        $this->place = $place;
-    }
+
+	/**
+	 * Returns the comment
+	 *
+	 * @return string $comment
+	 */
+	public function getComment()
+	{
+		return $this->comment;
+	}
+
+	/**
+	 * Sets the comment
+	 *
+	 * @param string $comment
+	 *
+	 * @return void
+	 */
+	public function setComment($comment)
+	{
+		$this->comment = $comment;
+	}
+
+
+
+	/**
+	 * Returns the date
+	 *
+	 * @return int $date
+	 */
+	public function getDate()
+	{
+		return $this->date;
+	}
+
+	/**
+	 * Sets the date
+	 *
+	 * @param int $date
+	 *
+	 * @return void
+	 */
+	public function setDate($date)
+	{
+		$this->date = $date;
+	}
+
+
+
+	/**
+	 * Returns the price
+	 *
+	 * @return string $price
+	 */
+	public function getPrice()
+	{
+		return $this->price;
+	}
+
+	/**
+	 * Sets the price
+	 *
+	 * @param string $price
+	 *
+	 * @return void
+	 */
+	public function setPrice($price)
+	{
+		$this->price = $price;
+	}
+
+	/**
+	 * Returns the amount
+	 *
+	 * @return string $amount
+	 */
+	public function getAmount()
+	{
+		return $this->amount;
+	}
+
+	/**
+	 * Sets the amount
+	 *
+	 * @param string $amount
+	 *
+	 * @return void
+	 */
+	public function setAmount($amount)
+	{
+		$this->amount = $amount;
+	}
+
+	/**
+	 * Returns the location
+	 *
+	 * @return \Streit\Seminar\Domain\Model\Location $location
+	 */
+	public function getLocation()
+	{
+		return $this->location;
+	}
+
+	/**
+	 * Sets the location
+	 *
+	 * @param \Streit\Seminar\Domain\Model\Location $location
+	 *
+	 * @return void
+	 */
+	public function setLocation(\Streit\Seminar\Domain\Model\Location $location)
+	{
+		$this->location = $location;
+	}
+
+	/**
+	 * Returns the series
+	 *
+	 * @return \Streit\Seminar\Domain\Model\Series $series
+	 */
+	public function getSeries()
+	{
+		return $this->series;
+	}
 }

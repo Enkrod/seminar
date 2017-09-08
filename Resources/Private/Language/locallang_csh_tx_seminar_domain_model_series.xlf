@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-11T14:45:25Z" product-name="seminar">
+		<header/>
+		<body>
+			<trans-unit id="tx_seminar_domain_model_series">
+				<source>Series</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_series.description">
+				<source>This Extension shows a list of Seminars including a single view and a list of series</source>
+			</trans-unit>
+			<trans-unit id="registration_date.description">
+				<source>Registration Date</source>
+			</trans-unit>
+			<trans-unit id="registration_date.description">
+				<source>Registration Date</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

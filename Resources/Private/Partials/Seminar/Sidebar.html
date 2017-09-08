@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Streit/streit_ext_viewhelper/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<aside class="sidebarColumn column column--one">
+    <section class="sidebarSection">
+        <f:render partial="Seminar/Properties" arguments="{seminar: seminar, schema: 'true'}"/>
+        <f:render partial="Event/List" arguments="{events: seminar.events, schema: 'true', hideButtons: 'true'}"/>
+    </section>
+</aside>
+</html>

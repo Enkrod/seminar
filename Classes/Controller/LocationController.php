@@ -13,9 +13,9 @@ namespace Streit\Seminar\Controller;
  ***/
 
 /**
- * TypeController
+ * LocationController
  */
-class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class LocationController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
      * action list
@@ -24,18 +24,18 @@ class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-        $types = $this->typeRepository->findAll();
-        $this->view->assign('types', $types);
+        $locations = $this->locationRepository->findAll();
+        $this->view->assign('locations', $locations);
     }
 
     /**
      * action show
      *
-     * @param \Streit\Seminar\Domain\Model\Type $type
+     * @param \Streit\Seminar\Domain\Model\Location $location
      * @return void
      */
-    public function showAction(\Streit\Seminar\Domain\Model\Type $type)
+    public function showAction(\Streit\Seminar\Domain\Model\Location $location)
     {
-        $this->view->assign('type', $type);
+        $this->view->assign('location', $location);
     }
 }

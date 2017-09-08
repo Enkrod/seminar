@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Streit/streit_ext_viewhelper/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:section name="main">
+    <header>
+        <h2>Series-registration-dates</h2>
+    </header>
+    <f:flashMessages/>
+    <ul class="eventlist">
+        <f:for each="{series->v:iterator.sort(order: 'ASC', sortBy: 'registrationDate')}" as="event" iteration="iterator">
+            <f:if condition="{event.registrationDate->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')}">
+                <f:if condition="{iterator.isFirst}">
+                    <li class="event">
+                        <div class="event__dateicon">
+                            <span class="month"><s:localizedDate format="%b">{event.registrationDate}</s:localizedDate></span>
+                            <span class="day"><s:localizedDate format="%e">{event.registrationDate}</s:localizedDate></span>
+                        </div>
+                        <div class="event__body">
+                            <h3 class="event__title">
+                                {event.seminar.title}
+                            </h3>
+                            <div class="event__teaser">
+                                <f:format.raw>{event.seminar.teaser}</f:format.raw>
+                            </div>
+                            <div class="event__date">
+                                Wann:
+                                <s:localizedDate format="%d.%m.%Y">{event.registrationDate}</s:localizedDate>
+                            </div>
+                            <div class="event__location">
+                                Ort:
+                                <f:link.action action="show" pluginName="seminars" controller="Location" arguments="{location: event.seminar.stdLocation}"
+                                               pageUid="261"
+                                               title="{event.seminar.stdLocation.street}, {event.seminar.stdLocation.postalCode} {event.seminar.stdLocation.locality}"
+                                               additionalAttributes="{property: 'url'}">
+                                    <span property="name">{event.seminar.stdLocation.title}</span>
+                                </f:link.action>
+                            </div>
+                            <div class="event__button">
+                                <f:link.action action="show" pluginName="seminars" controller="Seminar" arguments="{seminar : event.seminar}" pageUid="261">
+                                    Mehr
+                                    Infos und Anmeldung
+                                </f:link.action>
+                            </div>
+                        </div>
+                    </li>
+                </f:if>
+            </f:if>
+        </f:for>
+    </ul>
+</f:section>
+</html>

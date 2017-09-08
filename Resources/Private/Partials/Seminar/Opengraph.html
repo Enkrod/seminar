@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{seminar.title}">
+    <n:metaTag property="og:title" content="{seminar.title}"/>
+</f:if>
+<n:metaTag property="og:type" content="article"/>
+<n:metaTag property="og:url" content="" useCurrentDomain="1"/>
+<f:if condition="{seminar.teaser}">
+    <n:metaTag name="description" content="{seminar.teaser -> f:format.stripTags()}"/>
+    <n:metaTag property="og:description" content="{seminar.teaser -> f:format.stripTags()}"/>
+</f:if>
+<n:metaTag name="keywords" content="{seminar.contents -> f:format.stripTags()}"/>
+<!--n:metaTag property="og:phone_number" content="{settings.opengraph.phone_number}"/>
+<n:metaTag property="og:fax_number" content="{settings.opengraph.fax_number}"/>
+<n:metaTag property="og:street-address" content="{settings.opengraph.street-address}"/>
+<n:metaTag property="og:locality" content="{settings.opengraph.locality}"/>
+<n:metaTag property="og:postal-code" content="{settings.opengraph.postal-code}"/>
+<n:metaTag property="og:country-name" content="{settings.opengraph.country-name}"/-->
+</html>

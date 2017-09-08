@@ -9,26 +9,11 @@
 			<trans-unit id="tx_seminar_domain_model_seminars.description">
 				<source>This Extension shows a list of Seminars including a single view and a list of events</source>
 			</trans-unit>
-			<trans-unit id="date.title">
+			<trans-unit id="title.description">
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="date.comment">
-				<source>comment</source>
-			</trans-unit>
-			<trans-unit id="date.registrationDate">
-				<source>registration date</source>
-			</trans-unit>
-			<trans-unit id="date.description">
-				<source>date</source>
-			</trans-unit>
-			<trans-unit id="price.description">
-				<source>price</source>
-			</trans-unit>
-			<trans-unit id="amount.description">
-				<source>amount</source>
-			</trans-unit>
-			<trans-unit id="location.description">
-				<source>location</source>
+			<trans-unit id="name.description">
+				<source>name</source>
 			</trans-unit>
 		</body>
 	</file>
