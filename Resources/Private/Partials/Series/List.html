@@ -32,31 +32,40 @@
                                 <f:format.date format="%d.%m.%Y">{event.date}</f:format.date>
                                 <meta property="startDate" content="{event.date->f:format.date(format: 'Y-m-d')}">
                             </div>
-                            <f:if condition="({event.location} != {serie.seminar.location})">
+                            <f:if condition="({event.location} != {serie.seminar.stdLocation})">
                                 <f:then>
-                                    <div class="event__location" property="location">
+                                    <div class="event__location" property="location" typeof="Place">
                                         Ort:
                                         <f:link.action action="show" pluginName="seminars" controller="Location" arguments="{location: event.location}"
                                                        pageUid="261"
                                                        title="{event.location.street}, {event.location.postalCode} {event.location.locality}"
-                                                       additionalAttributes="{property: 'url'}">
+                                                       additionalAttributes="{property: 'sameAs url'}">
                                             <span property="name">{event.location.title}</span>
                                         </f:link.action>
+                                        <div property="address" typeof="PostalAddress">
+                                            <meta property="name" content="{serie.seminar.stdLocation.title}"/>
+                                            <meta property="streetAddress" content="{serie.seminar.stdLocation.street}"/>
+                                            <meta property="postalCode" content="{serie.seminar.stdLocation.postalCode}"/>
+                                            <meta property="addressLocality" content="{serie.seminar.stdLocation.locality}"/>
+                                        </div>
                                     </div>
                                 </f:then>
                                 <f:else>
-                                    <div class="event__location" property="location" typeof="PostalAddress">
+                                    <div class="event__location" property="location" typeof="Place">
                                         Ort:
                                         <f:link.action action="show" pluginName="seminars" controller="Location"
                                                        arguments="{location: serie.seminar.stdLocation}"
                                                        pageUid="261"
                                                        title="{serie.seminar.stdLocation.street}, {serie.seminar.stdLocation.postalCode} {serie.seminar.stdLocation.locality}"
-                                                       additionalAttributes="{property: 'url'}">
+                                                       additionalAttributes="{property: 'sameAs url'}">
                                             <span property="name">{serie.seminar.stdLocation.title}</span>
-                                            <meta property="streetAddess" content="{serie.seminar.stdLocation.street}">
-                                            <meta property="postalCode" content="{serie.seminar.stdLocation.postalCode}">
-                                            <meta property="addressLocality" content="{serie.seminar.stdLocation.locality}">
                                         </f:link.action>
+                                        <div property="address" typeof="PostalAddress">
+                                            <meta property="name" content="{serie.seminar.stdLocation.title}"/>
+                                            <meta property="streetAddress" content="{serie.seminar.stdLocation.street}"/>
+                                            <meta property="postalCode" content="{serie.seminar.stdLocation.postalCode}"/>
+                                            <meta property="addressLocality" content="{serie.seminar.stdLocation.locality}"/>
+                                        </div>
                                     </div>
                                 </f:else>
                             </f:if>
