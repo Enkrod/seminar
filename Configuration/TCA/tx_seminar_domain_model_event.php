@@ -16,14 +16,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-		'searchFields' => 'date,price,amount,place',
+		'searchFields' => 'date,title,price,amount,location,comment',
         'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_event.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, date, price, amount, place',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, date, comment, price, amount, location',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, date, price, amount, place, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, date, comment, price, amount, location, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
 		'sys_language_uid' => [
@@ -84,73 +84,115 @@ return [
         ],
 		'starttime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
+            	'behaviour'=> [
+            		'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
-            ]
+	            'renderType' => 'inputDateTime',
+            ],
         ],
         'endtime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
+	            'behaviour'=> [
+		            'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+                ],
+	            'renderType' => 'inputDateTime',
             ],
         ],
-        'date' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.date',
-	        'config' => [
-			    'dbType' => 'date',
-			    'type' => 'input',
-			    'size' => 7,
-			    'eval' => 'date',
-			    'default' => '0000-00-00'
+		'title' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.title',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
 			],
-	    ],
-	    'price' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.price',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'double2'
+		],
+		'date' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.date',
+			'config' => [
+				'type' => 'input',
+				'size' => 13,
+				'eval' => 'datetime',
+				'default' => '0',
+				'range' => [
+					'upper' => mktime(0, 0, 0, 1, 1, 2038)
+				],
+				'renderType' => 'inputDateTime',
+			],
+		],
+		'comment' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.comment',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			],
+		],
+		'price'    => [
+			'exclude' => true,
+			'label'   => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_seminar.std_price',
+			'config'  => [
+				'type' => 'text',
+				'rows' => 2,
+				'eval' => 'trim',
+				'enableRichtext' => true,
 			]
-	    ],
-	    'amount' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.amount',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
+		],
+		'amount'   => [
+			'exclude' => true,
+			'label'   => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_seminar.std_amount',
+			'config'  => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
 			],
-	    ],
-	    'place' => [
+		],
+	    'location' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.place',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_event.location',
 	        'config' => [
 			    'type' => 'select',
 			    'renderType' => 'selectSingle',
-			    'foreign_table' => 'tx_seminar_domain_model_place',
+			    'foreign_table' => 'tx_seminar_domain_model_location',
 			    'minitems' => 0,
 			    'maxitems' => 1,
 			],
 	    ],
-        'seminar' => [
+
+		'series' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:series/Resources/Private/Language/locallang_db.xlf:tx_series_domain_model_series',
+			'config' => [
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'foreign_table' => 'tx_series_domain_model_series',
+				'minitems' => 0,
+				'maxitems' => 1,
+			],
+		],
+
+		/*'seminar' => [
             'config' => [
                 'type' => 'passthrough',
             ],
         ],
+		*/
     ],
 ];

@@ -24,6 +24,24 @@
 			<trans-unit id="tx_seminar_domain_model_seminar.description">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.contents">
+				<source>Contents</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.methods">
+				<source>Methods</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.instructor">
+				<source>Instructor</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.audience">
+				<source>Audience</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.educational_credential_awarded">
+				<source>Educational Credential Awarded</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.registration_date">
+				<source>Registration Date</source>
+			</trans-unit>
 			<trans-unit id="tx_seminar_domain_model_seminar.std_price">
 				<source>Std Price</source>
 			</trans-unit>
@@ -42,8 +60,11 @@
 			<trans-unit id="tx_seminar_domain_model_seminar.events">
 				<source>Events</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_seminar.std_place">
-				<source>Std Place</source>
+			<trans-unit id="tx_seminar_domain_model_seminar.series">
+				<source>Series</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_seminar.std_location">
+				<source>Std Location</source>
 			</trans-unit>
 			<trans-unit id="tx_seminar_domain_model_event">
 				<source>Event</source>
@@ -57,8 +78,14 @@
 			<trans-unit id="tx_seminar_domain_model_event.amount">
 				<source>Amount</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_event.place">
-				<source>Place</source>
+			<trans-unit id="tx_seminar_domain_model_event.location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_series">
+				<source>Series</source>
+			</trans-unit>
+			<trans-unit id="tx_seminar_domain_model_series.registration_date">
+				<source>Registration Date</source>
 			</trans-unit>
 			<trans-unit id="tx_seminar_domain_model_type">
 				<source>Type</source>
@@ -81,25 +108,25 @@
 			<trans-unit id="tx_seminar_domain_model_category.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place">
-				<source>Place</source>
+			<trans-unit id="tx_seminar_domain_model_location">
+				<source>Location</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.title">
+			<trans-unit id="tx_seminar_domain_model_location.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.name">
+			<trans-unit id="tx_seminar_domain_model_location.name">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.street">
+			<trans-unit id="tx_seminar_domain_model_location.street">
 				<source>Street</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.postal_code">
+			<trans-unit id="tx_seminar_domain_model_location.postal_code">
 				<source>Postal Code</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.locality">
+			<trans-unit id="tx_seminar_domain_model_location.locality">
 				<source>Locality</source>
 			</trans-unit>
-			<trans-unit id="tx_seminar_domain_model_place.description">
+			<trans-unit id="tx_seminar_domain_model_location.description">
 				<source>Description</source>
 			</trans-unit>
 		</body>

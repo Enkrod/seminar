@@ -13,10 +13,18 @@ namespace Streit\Seminar\Controller;
  ***/
 
 /**
- * TypeController
+ * SeriesController
  */
-class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class SeriesController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+	/**
+	 * seriesRepository
+	 *
+	 * @var \Streit\Seminar\Domain\Repository\SeriesRepository
+	 * @inject
+	 */
+	protected $seriesRepository = null;
+
     /**
      * action list
      *
@@ -24,18 +32,7 @@ class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-        $types = $this->typeRepository->findAll();
-        $this->view->assign('types', $types);
-    }
-
-    /**
-     * action show
-     *
-     * @param \Streit\Seminar\Domain\Model\Type $type
-     * @return void
-     */
-    public function showAction(\Streit\Seminar\Domain\Model\Type $type)
-    {
-        $this->view->assign('type', $type);
+        $series = $this->seriesRepository->findAll();
+        $this->view->assign('series', $series);
     }
 }

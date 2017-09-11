@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{seminar.title}">
+    <n:metaTag property="og:title" content="{seminar.title}"/>
+</f:if>
+<n:metaTag property="og:type" content="article"/>
+<n:metaTag property="og:url" content="" useCurrentDomain="1"/>
+<f:if condition="{seminar.teaser}">
+    <n:metaTag name="description" content="{seminar.teaser -> f:format.stripTags()}"/>
+    <n:metaTag property="og:description" content="{seminar.teaser -> f:format.stripTags()}"/>
+</f:if>
+<n:metaTag name="keywords" content="{seminar.contents -> f:format.stripTags()}"/>
+</html>

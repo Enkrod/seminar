@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_category',
+        'title'	=> 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_form',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -16,14 +16,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-		'searchFields' => 'title',
-        'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_category.gif'
+		'searchFields' => 'title,name',
+        'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_form.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, name',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, name, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
 		'sys_language_uid' => [
@@ -53,8 +53,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_seminar_domain_model_category',
-                'foreign_table_where' => 'AND tx_seminar_domain_model_category.pid=###CURRENT_PID### AND tx_seminar_domain_model_category.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_seminar_domain_model_form',
+                'foreign_table_where' => 'AND tx_seminar_domain_model_form.pid=###CURRENT_PID### AND tx_seminar_domain_model_form.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -115,7 +115,16 @@ return [
         ],
         'title' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_category.title',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_form.title',
+	        'config' => [
+			    'type' => 'input',
+			    'size' => 30,
+			    'eval' => 'trim'
+			],
+	    ],
+	    'name' => [
+	        'exclude' => true,
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_form.name',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,

@@ -13,9 +13,9 @@ namespace Streit\Seminar\Controller;
  ***/
 
 /**
- * TypeController
+ * SectionController
  */
-class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class SectionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
      * action list
@@ -24,18 +24,18 @@ class TypeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-        $types = $this->typeRepository->findAll();
-        $this->view->assign('types', $types);
+        $sections = $this->sectionRepository->findAll();
+        $this->view->assign('sections', $sections);
     }
 
     /**
      * action show
      *
-     * @param \Streit\Seminar\Domain\Model\Type $type
+     * @param \Streit\Seminar\Domain\Model\Section $section
      * @return void
      */
-    public function showAction(\Streit\Seminar\Domain\Model\Type $type)
+    public function showAction(\Streit\Seminar\Domain\Model\Section $section)
     {
-        $this->view->assign('type', $type);
+        $this->view->assign('section', $section);
     }
 }

@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:s="http://typo3.org/ns/Streit/streit_ext_viewhelper/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="frame frame-default frame-type-list frame-calendar">
+    <header>
+        <h2>Series-Events-dates</h2>
+    </header>
+    <f:for each="{series->v:iterator.sort(order: 'ASC', sortBy: 'registrationDate')}" as="serie" iteration="iterator">
+        <f:if condition="{serie.events->f:count()} > 0">
+            <f:then>
+                <f:if condition="{iterator.isFirst}">
+                    <ul class="eventlist" rel="hasCourseInstance">
+                </f:if>
+                <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event">
+                    <f:if condition="{event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')}">
+                        <f:render partial="Event/Item" arguments="{event: event}"/>
+                    </f:if>
+                </f:for>
+                <f:if condition="{iterator.isLast}">
+                    </ul>
+                </f:if>
+            </f:then>
+            <f:else>
+                <p>No Dates</p>
+            </f:else>
+        </f:if>
+    </f:for>
+</div>
+</html>

@@ -8,7 +8,7 @@ namespace Streit\Seminar\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2017 Sebastian Wolfertz &lt;S.Wolfertz@Streit-Online.de&gt;, Streit GmbH
+ *  (c) 2017 Sebastian Wolfertz <S.Wolfertz@Streit-Online.de>, Streit GmbH
  *
  ***/
 
@@ -23,13 +23,6 @@ class Type extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $title = '';
-
-    /**
-     * color
-     *
-     * @var string
-     */
-    protected $color = '';
 
     /**
      * Returns the title
@@ -50,26 +43,5 @@ class Type extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
-    }
-
-    /**
-     * Returns the color
-     *
-     * @return string $color
-     */
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    /**
-     * Sets the color
-     *
-     * @param string $color
-     * @return void
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
     }
 }

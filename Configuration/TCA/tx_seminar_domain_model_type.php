@@ -13,17 +13,15 @@ return [
 		'delete' => 'deleted',
 		'enablecolumns' => [
             'disabled' => 'hidden',
-            'starttime' => 'starttime',
-            'endtime' => 'endtime',
         ],
-		'searchFields' => 'title,color',
+		'searchFields' => 'title',
         'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_type.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, color',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, color, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title'],
     ],
     'columns' => [
 		'sys_language_uid' => [
@@ -82,43 +80,9 @@ return [
                 ],
             ],
         ],
-		'starttime' => [
-            'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config' => [
-                'type' => 'input',
-                'size' => 13,
-                'eval' => 'datetime',
-                'default' => 0,
-            ]
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config' => [
-                'type' => 'input',
-                'size' => 13,
-                'eval' => 'datetime',
-                'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
-            ],
-        ],
         'title' => [
 	        'exclude' => true,
 	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_type.title',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	    ],
-	    'color' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_type.color',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,

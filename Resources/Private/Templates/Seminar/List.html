@@ -1,48 +1,50 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
 
 This Template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+Resources:
+Private:
+Templates:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Seminar</h1>
-
-<f:flashMessages />
-<f:debug>{seminars}</f:debug>
-<table  class="tx_seminar" >
-	<tr>
-		<th><f:translate key="tx_seminar_domain_model_seminar.title" /></th>
-		<th><f:translate key="tx_seminar_domain_model_seminar.subtitle" /></th>
-		<th><f:translate key="tx_seminar_domain_model_seminar.teaser" /></th>
-		<th><f:translate key="tx_seminar_domain_model_seminar.description" /></th>
-		<th><f:translate key="tx_seminar_domain_model_seminar.std_price" /></th>
-		<th><f:translate key="tx_seminar_domain_model_seminar.std_amount" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{seminars}" as="seminar">
-		<tr>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"> {seminar.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"> {seminar.subtitle}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"><f:format.raw>{seminar.teaser}</f:format.raw></f:link.action></td>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"><f:format.raw>{seminar.description}</f:format.raw></f:link.action></td>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"> {seminar.stdPrice}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{seminar : seminar}"> {seminar.stdAmount}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{seminar : seminar}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{seminar : seminar}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Seminar</f:link.action>
+    <nav title="">
+        <ul class="seminarList">
+            <f:groupedFor each="{seminars->v:iterator.sort(order: 'ASC', sortBy: 'uid')}" as="seminarsBySection" groupBy="section.title"
+                          groupKey="section">
+                <li class="seminarList__section">
+                    <span>{section}</span>
+                    <ul>
+                        <f:groupedFor each="{seminarsBySection->v:iterator.sort(order: 'ASC', sortBy: 'category.title')}" as="seminarsBySectionByCategory" groupBy="category.title" groupKey="category">
+                            <li class="seminarList__category">
+                                <span role="button" tabindex="0">{category}</span>
+                                <ul>
+                                    <f:groupedFor each="{seminarsBySectionByCategory}" as="seminarsBySectionByCategoryByType" groupBy="type.title" groupKey="type">
+                                        <li class="seminarList__type">
+                                            <span>{type}</span>
+                                            <ul>
+                                                <f:for each="{seminarsBySectionByCategoryByType}" as="seminar">
+                                                    <li class="seminarList__item">
+                                                        <f:link.action action="show" arguments="{seminar : seminar}" pageUid="261">{seminar.title}</f:link.action>
+                                                        <f:alias map=""></f:alias>
+                                                    </li>
+                                                </f:for>
+                                            </ul>
+                                        </li>
+                                    </f:groupedFor>
+                                </ul>
+                            </li>
+                        </f:groupedFor>
+                    </ul>
+                </li>
+            </f:groupedFor>
+        </ul>
+    </nav>
+    <f:flashMessages/>
 </f:section>
 </html>

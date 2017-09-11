@@ -21,6 +21,24 @@
 			<trans-unit id="description.description">
 				<source>description</source>
 			</trans-unit>
+			<trans-unit id="audience.description">
+				<source>audience</source>
+			</trans-unit>
+			<trans-unit id="contents.description">
+				<source>contents</source>
+			</trans-unit>
+			<trans-unit id="methods.description">
+				<source>methods</source>
+			</trans-unit>
+			<trans-unit id="instructor.description">
+				<source>instructor</source>
+			</trans-unit>
+			<trans-unit id="educational_credential_awarded.description">
+				<source>Educational Credential Awarded</source>
+			</trans-unit>
+			<trans-unit id="registration_date.description">
+				<source>Registration Date</source>
+			</trans-unit>
 			<trans-unit id="std_price.description">
 				<source>stdPrice</source>
 			</trans-unit>
@@ -39,8 +57,14 @@
 			<trans-unit id="events.description">
 				<source>events</source>
 			</trans-unit>
-			<trans-unit id="std_place.description">
-				<source>stdPlace</source>
+			<trans-unit id="series.description">
+				<source>series</source>
+			</trans-unit>
+			<trans-unit id="std_location.description">
+				<source>stdLocation</source>
+			</trans-unit>
+			<trans-unit id="std_form.description">
+				<source>form</source>
 			</trans-unit>
 		</body>
 	</file>

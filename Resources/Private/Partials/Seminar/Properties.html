@@ -1,0 +1,38 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+
+<div class="frame frame-default frame-type-list frame-contents">
+    <header><h2>Inhalte</h2></header>
+    <f:format.html>{seminar.contents}</f:format.html>
+    <meta property="about" content="{seminar.contents->f:format.stripTags()}"/>
+</div>
+<div class="frame frame-default frame-type-list frame-methods">
+    <header><h2>Methoden</h2></header>
+    <f:format.html>{seminar.methods}</f:format.html>
+</div>
+<div class="frame frame-default frame-type-list frame-instructor" property="contributor" resource="#instructor" typeof="Person">
+    <header><h2>Dozent / Referent</h2></header>
+    <div property="name">
+        <f:format.html>{seminar.instructor}</f:format.html>
+    </div>
+
+</div>
+<div class="frame frame-default frame-type-list frame-attendees">
+    <header><h2>Teilnehmerzahl</h2></header>
+    <f:format.html>{seminar.stdAmount}</f:format.html>
+</div>
+<div class="frame frame-default frame-type-list frame-award">
+    <header><h2>Abschluss</h2></header>
+    <div property="educationalCredentialAwarded">
+        <f:format.html>{seminar.educationalCredentialAwarded}</f:format.html>
+    </div>
+</div>
+<div class="frame frame-default frame-type-list frame-price">
+    <header><h2>Teilnahmegebühr</h2></header>
+    <f:format.html>{seminar.stdPrice}</f:format.html>
+</div>
+
+
+</html>

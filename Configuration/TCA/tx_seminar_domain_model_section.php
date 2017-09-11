@@ -84,27 +84,33 @@ return [
         ],
 		'starttime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
+	            'behaviour'=> [
+		            'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
+	            'renderType' => 'inputDateTime',
             ]
         ],
         'endtime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
+	            'behaviour'=> [
+		            'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+                ],
+	            'renderType' => 'inputDateTime',
             ],
         ],
         'title' => [

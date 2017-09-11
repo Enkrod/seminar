@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place',
+        'title'	=> 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
 		'searchFields' => 'title,name,street,postal_code,locality,description',
-        'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_place.gif'
+        'iconfile' => 'EXT:seminar/Resources/Public/Icons/tx_seminar_domain_model_location.gif'
     ],
     'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, name, street, postal_code, locality, description',
@@ -53,8 +53,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_seminar_domain_model_place',
-                'foreign_table_where' => 'AND tx_seminar_domain_model_place.pid=###CURRENT_PID### AND tx_seminar_domain_model_place.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_seminar_domain_model_location',
+                'foreign_table_where' => 'AND tx_seminar_domain_model_location.pid=###CURRENT_PID### AND tx_seminar_domain_model_location.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -84,32 +84,38 @@ return [
         ],
 		'starttime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
+	            'behaviour'=> [
+		            'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
+	            'renderType' => 'inputDateTime',
             ]
         ],
         'endtime' => [
             'exclude' => true,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
+	            'behaviour'=> [
+		            'allowLanguageSynchronization' => true
+	            ],
                 'type' => 'input',
                 'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
+                ],
+	            'renderType' => 'inputDateTime',
             ],
         ],
         'title' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.title',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.title',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -118,7 +124,7 @@ return [
 	    ],
 	    'name' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.name',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.name',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -127,7 +133,7 @@ return [
 	    ],
 	    'street' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.street',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.street',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -136,7 +142,7 @@ return [
 	    ],
 	    'postal_code' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.postal_code',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.postal_code',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -145,7 +151,7 @@ return [
 	    ],
 	    'locality' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.locality',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.locality',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -154,14 +160,12 @@ return [
 	    ],
 	    'description' => [
 	        'exclude' => true,
-	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_place.description',
+	        'label' => 'LLL:EXT:seminar/Resources/Private/Language/locallang_db.xlf:tx_seminar_domain_model_location.description',
 	        'config' => [
 			    'type' => 'text',
-			    'cols' => 40,
-			    'rows' => 15,
 			    'eval' => 'trim',
+		        'enableRichtext' => true,
 			],
-	        'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
 	    ],
     ],
 ];

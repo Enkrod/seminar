@@ -8,7 +8,7 @@ namespace Streit\Seminar\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2017 Sebastian Wolfertz &lt;S.Wolfertz@Streit-Online.de&gt;, Streit GmbH
+ *  (c) 2017 Sebastian Wolfertz <S.Wolfertz@Streit-Online.de>, Streit GmbH
  *
  ***/
 
@@ -45,10 +45,11 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $description = '';
 
+
     /**
      * stdPrice
      *
-     * @var float
+     * @var string
      */
     protected $stdPrice = 0.0;
 
@@ -58,6 +59,20 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $stdAmount = '';
+
+	/**
+	 * stdLocation
+	 *
+	 * @var \Streit\Seminar\Domain\Model\Location
+	 */
+	protected $stdLocation = null;
+
+	/**
+	 * form
+	 *
+	 * @var \Streit\Seminar\Domain\Model\Form
+	 */
+	protected $form = null;
 
     /**
      * type
@@ -81,21 +96,55 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $category = null;
 
     /**
-     * events
+     * series
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Event>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Series>
      * @cascade remove
      */
-    protected $events = null;
+    protected $series = null;
 
-    /**
-     * stdPlace
-     *
-     * @var \Streit\Seminar\Domain\Model\Place
-     */
-    protected $stdPlace = null;
 
-    /**
+	/**
+	 * contents
+	 *
+	 * @var string
+	 */
+	protected $contents = '';
+
+	/**
+	 * methods
+	 *
+	 * @var string
+	 */
+	protected $methods = '';
+
+
+	/**
+	 * instructor
+	 *
+	 * @var string
+	 */
+	protected $instructor = '';
+
+	/**
+	 * audience
+	 *
+	 * @var string
+	 */
+	protected $audience = '';
+
+	/**
+	 * educationalCredentialAwarded
+	 *
+	 * @var string
+	 */
+	protected $educationalCredentialAwarded = '';
+
+
+
+
+
+	/**
      * __construct
      */
     public function __construct()
@@ -114,7 +163,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected function initStorageObjects()
     {
-        $this->events = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->series = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -204,7 +253,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the stdPrice
      *
-     * @return float $stdPrice
+     * @return string $stdPrice
      */
     public function getStdPrice()
     {
@@ -214,7 +263,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the stdPrice
      *
-     * @param float $stdPrice
+     * @param string $stdPrice
      * @return void
      */
     public function setStdPrice($stdPrice)
@@ -307,66 +356,202 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Adds a Event
+     * Adds a Series
      *
-     * @param \Streit\Seminar\Domain\Model\Event $event
+     * @param \Streit\Seminar\Domain\Model\Series $series
      * @return void
      */
-    public function addEvent(\Streit\Seminar\Domain\Model\Event $event)
+    public function addSeries(\Streit\Seminar\Domain\Model\Series $series)
     {
-        $this->events->attach($event);
+        $this->series->attach($series);
     }
 
     /**
-     * Removes a Event
+     * Removes a Series
      *
-     * @param \Streit\Seminar\Domain\Model\Event $eventToRemove The Event to be removed
+     * @param \Streit\Seminar\Domain\Model\Series $seriesToRemove The Series to be removed
      * @return void
      */
-    public function removeEvent(\Streit\Seminar\Domain\Model\Event $eventToRemove)
+    public function removeSeries(\Streit\Seminar\Domain\Model\Series $seriesToRemove)
     {
-        $this->events->detach($eventToRemove);
+        $this->series->detach($seriesToRemove);
     }
 
     /**
-     * Returns the events
+     * Returns the series
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Event> $events
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Series> $series
      */
-    public function getEvents()
+    public function getSeries()
     {
-        return $this->events;
+        return $this->series;
     }
 
     /**
-     * Sets the events
+     * Sets the series
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Event> $events
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Streit\Seminar\Domain\Model\Series> $series
      * @return void
      */
-    public function setEvents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $events)
+    public function setSeries(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $series)
     {
-        $this->events = $events;
+        $this->series = $series;
     }
 
     /**
-     * Returns the stdPlace
+     * Returns the stdLocation
      *
-     * @return \Streit\Seminar\Domain\Model\Place $stdPlace
+     * @return \Streit\Seminar\Domain\Model\Location $stdLocation
      */
-    public function getStdPlace()
+    public function getStdLocation()
     {
-        return $this->stdPlace;
+        return $this->stdLocation;
     }
 
     /**
-     * Sets the stdPlace
+     * Sets the stdLocation
      *
-     * @param \Streit\Seminar\Domain\Model\Place $stdPlace
+     * @param \Streit\Seminar\Domain\Model\Location $stdLocation
      * @return void
      */
-    public function setStdPlace(\Streit\Seminar\Domain\Model\Place $stdPlace)
+    public function setStdLocation(\Streit\Seminar\Domain\Model\Location $stdLocation)
     {
-        $this->stdPlace = $stdPlace;
+        $this->stdLocation = $stdLocation;
     }
+	/**
+	 * Returns the form
+	 *
+	 * @return \Streit\Seminar\Domain\Model\Form $form
+	 */
+	public function getForm()
+	{
+		return $this->form;
+	}
+
+	/**
+	 * Sets the form
+	 *
+	 * @param \Streit\Seminar\Domain\Model\Form $form
+	 * @return void
+	 */
+	public function setForm(\Streit\Seminar\Domain\Model\Form $form)
+	{
+		$this->form = $form;
+	}
+
+
+
+	/**
+	 * Returns the contents
+	 *
+	 * @return string $contents
+	 */
+	public function getContents()
+	{
+		return $this->contents;
+	}
+
+	/**
+	 * Sets the contents
+	 *
+	 * @param string $contents
+	 * @return void
+	 */
+	public function setContents($contents)
+	{
+		$this->contents = $contents;
+	}
+
+
+
+	/**
+	 * Returns the methods
+	 *
+	 * @return string $methods
+	 */
+	public function getMethods()
+	{
+		return $this->methods;
+	}
+
+	/**
+	 * Sets the methods
+	 *
+	 * @param string $methods
+	 * @return void
+	 */
+	public function setMethods($methods)
+	{
+		$this->methods = $methods;
+	}
+
+
+
+	/**
+	 * Returns the instructor
+	 *
+	 * @return string $instructor
+	 */
+	public function getInstructor()
+	{
+		return $this->instructor;
+	}
+
+	/**
+	 * Sets the instructor
+	 *
+	 * @param string $instructor
+	 * @return void
+	 */
+	public function setInstructor($instructor)
+	{
+		$this->instructor = $instructor;
+	}
+
+
+
+	/**
+	 * Returns the audience
+	 *
+	 * @return string $audience
+	 */
+	public function getAudience()
+	{
+		return $this->audience;
+	}
+
+	/**
+	 * Sets the audience
+	 *
+	 * @param string $audience
+	 * @return void
+	 */
+	public function setAudience($audience)
+	{
+		$this->audience = $audience;
+	}
+
+
+	/**
+	 * Returns the educationalCredentialAwarded
+	 *
+	 * @return string $educationalCredentialAwarded
+	 */
+	public function getEducationalCredentialAwarded()
+	{
+		return $this->educationalCredentialAwarded;
+	}
+
+	/**
+	 * Sets the educationalCredentialAwarded
+	 *
+	 * @param string $educationalCredentialAwarded
+	 * @return void
+	 */
+	public function setEducationalCredentialAwarded($educationalCredentialAwarded)
+	{
+		$this->educationalCredentialAwarded = $educationalCredentialAwarded;
+	}
+
+
 }

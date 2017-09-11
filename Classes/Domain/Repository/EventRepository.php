@@ -13,8 +13,8 @@ namespace Streit\Seminar\Domain\Repository;
  ***/
 
 /**
- * The repository for Seminars
+ * The repository for Events
  */
-class SeminarRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class EventRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 }
