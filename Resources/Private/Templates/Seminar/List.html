@@ -15,7 +15,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
     <nav title="">
         <ul class="seminarList">
-            <f:debug>{seminars}</f:debug>
             <f:groupedFor each="{seminars->v:iterator.sort(order: 'ASC', sortBy: 'uid')}" as="seminarsBySection" groupBy="section.title"
                           groupKey="section">
                 <li class="seminarList__section">

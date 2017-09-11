@@ -3,8 +3,12 @@
       data-namespace-typo3-fluid="true">
 <aside class="sidebarColumn column column--one">
     <section class="sidebarSection">
+        <f:debug>{seminar}</f:debug>
         <f:render partial="Seminar/Properties" arguments="{seminar: seminar, schema: 'true'}"/>
-        <f:render partial="Event/List" arguments="{events: seminar.events, schema: 'true', hideButtons: 'true'}"/>
+        <f:debug>({seminar.series -> f:count()} > 0)</f:debug>
+        <f:if condition="({seminar.series -> f:count()} > 0)">
+            <f:render partial="Series/List" arguments="{series: seminar.series, schema: 'true', hideButtons: 'true'}"/>
+        </f:if>
     </section>
 </aside>
 </html>

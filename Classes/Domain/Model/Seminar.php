@@ -49,7 +49,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * stdPrice
      *
-     * @var float
+     * @var string
      */
     protected $stdPrice = 0.0;
 
@@ -253,7 +253,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the stdPrice
      *
-     * @return float $stdPrice
+     * @return string $stdPrice
      */
     public function getStdPrice()
     {
@@ -263,7 +263,7 @@ class Seminar extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the stdPrice
      *
-     * @param float $stdPrice
+     * @param string $stdPrice
      * @return void
      */
     public function setStdPrice($stdPrice)
