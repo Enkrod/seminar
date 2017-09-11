@@ -14,7 +14,7 @@
             </n:format.nothing>
             <h1 class="pagetitle" property="name">{seminar.title}</h1>
             <f:format.html parseFuncTSPath="">{seminar.subtitle}</f:format.html>
-            <meta property="provider" content="#brand">
+            <meta property="author provider" resource="#brand">
         </header>
         <div class="container row">
             <div class="mainColumn column column--two">
@@ -25,7 +25,7 @@
                 <f:format.html parseFuncTSPath="">{seminar.description}</f:format.html>
                 <h2>Zielgruppe</h2>
                 <f:format.html>{seminar.audience}</f:format.html>
-
+                <meta property="audience" content="{seminar.audience->f:format.stripTags()}" />
 
             </div>
 

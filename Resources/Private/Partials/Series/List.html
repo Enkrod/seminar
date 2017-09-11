@@ -14,6 +14,7 @@
             <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event">
                 <f:if condition="{event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')}">
                     <li class="event" typeof="CourseInstance">
+                        <meta property="performer instructor" resource="#instructor"/>
                         <div class="event__dateicon">
                             <span class="month"><s:localizedDate format="%b">{event.date}</s:localizedDate></span>
                             <span class="day"><s:localizedDate format="%e">{event.date}</s:localizedDate></span>
