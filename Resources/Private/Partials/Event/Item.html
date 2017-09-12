@@ -9,9 +9,9 @@
         <span class="day"><s:localizedDate format="%e">{event.date}</s:localizedDate></span>
     </div>
     <div class="event__body">
-        <h3 class="event__title" property="name">
+        <h4 class="event__title" property="name">
             {event.title}
-        </h3>
+        </h4>
         <f:if condition="{event.comment}">
             <div class="event__teaser">
                 <f:format.raw>{event.comment}</f:format.raw>

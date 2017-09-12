@@ -12,11 +12,21 @@
                 <f:if condition="{iterator.isFirst}">
                     <ul class="eventlist" rel="hasCourseInstance">
                 </f:if>
-                <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event">
-                    <f:if condition="{event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')}">
-                        <f:render partial="Event/Item" arguments="{event: event}"/>
+                <li class="eventlist__series">
+                    <f:if condition="{iterator.isFirst}">
+                        <h3>Current Series</h3>
                     </f:if>
-                </f:for>
+                    <f:if condition="{iterator.index} == 1">
+                        <h3>Future Series</h3>
+                    </f:if>
+                    <ul class="eventlist__events">
+                        <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event">
+                            <f:if condition="{event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')}">
+                                <f:render partial="Event/Item" arguments="{event: event}"/>
+                            </f:if>
+                        </f:for>
+                    </ul>
+                </li>
                 <f:if condition="{iterator.isLast}">
                     </ul>
                 </f:if>

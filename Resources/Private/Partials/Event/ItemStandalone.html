@@ -1,12 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:s="http://typo3.org/ns/Streit/streit_ext_viewhelper/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<li class="event" typeof="Course">
+<li class="event event--standalone" typeof="Course">
     <meta property="provider" resource="#brand"/>
     <div class="event__dateicon">
-        <span class="month"><s:localizedDate format="%b">{event.series.registrationDate}</s:localizedDate></span>
-        <span class="day"><s:localizedDate format="%e">{event.series.registrationDate}</s:localizedDate></span>
+        <span class="month"><f:format.date format="%b">{event.series.registrationDate}</f:format.date></span>
+        <span class="day"><f:format.date format="%e">{event.series.registrationDate}</f:format.date></span>
     </div>
     <div class="event__body">
         <h3 class="event__title" property="name">

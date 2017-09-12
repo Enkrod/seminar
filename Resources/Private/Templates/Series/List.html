@@ -1,5 +1,4 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:s="http://typo3.org/ns/Streit/streit_ext_viewhelper/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 
@@ -8,25 +7,25 @@
         <h2>Series-registration-dates</h2>
     </header>
     <f:flashMessages/>
-    <f:for each="{series->v:iterator.sort(order: 'ASC', sortBy: 'registrationDate')}" as="serie" iteration="serieIterator">
-        <f:if condition="{serie.events->f:count()} > 0">
-            <f:then>
+    <ul class="eventlist">
+        <f:groupedFor each="{series->v:iterator.sort(order: 'ASC', sortBy: 'registrationDate')}" as="seminarSeries" groupBy="seminar">
+            <f:for each="{seminarSeries}" as="serie" iteration="serieIterator">
                 <f:if condition="{serieIterator.isFirst}">
-                    <ul class="eventlist">
-                </f:if>
-                <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event" iteration="eventIterator">
-                    <f:if condition="({event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')} && {eventIterator.isFirst})">
-                        <f:render partial="Event/ItemStandalone" arguments="{event: event}"/>
+                    <f:if condition="{serie.events->f:count()} > 0">
+                        <f:then>
+                            <f:for each="{serie.events->v:iterator.sort(order: 'ASC', sortBy: 'date')}" as="event" iteration="eventIterator">
+                                <f:if condition="({event.date->f:format.date(format:'Ymd')} >= {f:format.date(date:'', format:'Ymd')} && {eventIterator.isFirst})">
+                                    <f:render partial="Event/ItemStandalone" arguments="{event: event}"/>
+                                </f:if>
+                            </f:for>
+                        </f:then>
+                        <f:else>
+                            <p>No Dates</p>
+                        </f:else>
                     </f:if>
-                </f:for>
-                <f:if condition="{serieIterator.isLast}">
-                    </ul>
                 </f:if>
-            </f:then>
-            <f:else>
-                <p>No Dates</p>
-            </f:else>
-        </f:if>
-    </f:for>
+            </f:for>
+        </f:groupedFor>
+    </ul>
 </f:section>
 </html>
