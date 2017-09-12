@@ -6,7 +6,7 @@
     <header>
         <h2>Series-registration-dates</h2>
     </header>
-    <f:flashMessages/>
+    <p>Latest date to register</p>
     <ul class="eventlist">
         <f:groupedFor each="{series->v:iterator.sort(order: 'ASC', sortBy: 'registrationDate')}" as="seminarSeries" groupBy="seminar">
             <f:for each="{seminarSeries}" as="serie" iteration="serieIterator">
