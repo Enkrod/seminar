@@ -1,0 +1,2 @@
+// USE T3* FILE-EXTENSIONS
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:streit_tmpl_academy/Configuration/TypoScript/Setup.t3s">
