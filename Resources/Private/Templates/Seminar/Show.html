@@ -4,7 +4,7 @@
 <f:layout name="Default"/>
 
 <f:section name="main">
-    <div vocab="http://schema.org/" typeof="Course" resource="#course-{seminar.uid}" id="#course-{seminar.uid}">
+    <div vocab="http://schema.org/" typeof="Course" resource="#course-{seminar.uid}" id="course-{seminar.uid}" class="seminar seminar--{seminar.section.title->f:format.case(mode:'lower')}">
         <header class="container">
             <n:format.nothing>
                 <n:titleTag>
