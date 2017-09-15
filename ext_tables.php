@@ -13,17 +13,18 @@ call_user_func(
 
 	    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 		    'Streit.Seminar',
-		    'Events',
-		    'Eventlist'
-	    );
-
-	    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-		    'Streit.Seminar',
 		    'Series',
 		    'Serieslist'
 	    );
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_seminar_domain_model_seminar', 'EXT:seminar/Resources/Private/Language/locallang_csh_tx_seminar_domain_model_seminar.xlf');
+	    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+		    'Streit.Seminar',
+		    'Locations',
+		    'Locationlist'
+	    );
+
+
+	    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_seminar_domain_model_seminar', 'EXT:seminar/Resources/Private/Language/locallang_csh_tx_seminar_domain_model_seminar.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_seminar_domain_model_seminar');
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_seminar_domain_model_event', 'EXT:seminar/Resources/Private/Language/locallang_csh_tx_seminar_domain_model_event.xlf');

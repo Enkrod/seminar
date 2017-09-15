@@ -13,45 +13,29 @@ call_user_func(
             ],
             // non-cacheable actions
             [
-                'Seminar' => '',
-                'Event' => '',
-                'Type' => '',
-                'Location' => ''
+	            'Seminar' => 'list, show',
             ]
         );
-		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-			'Streit.Seminar',
-			'Events',
-			[
-				'Event' => 'list',
-				'Series' => 'list',
-				'Seminar' => 'list, show',
-				'Type' => 'list, show',
-				'Section' => 'list, show',
-				'Category' => 'list, show',
-				'Location' => 'list, show'
-			],
-			// non-cacheable actions
-			[
-				'Event' => '',
-				'Seminar' => '',
-				'Type' => '',
-				'Location' => ''
-			]
-		);
 		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 			'Streit.Seminar',
 			'Series',
 			[
 				'Series' => 'list',
-				'Seminar' => 'list, show',
 			],
 			// non-cacheable actions
 			[
-				'Event' => '',
-				'Seminar' => '',
-				'Type' => '',
-				'Location' => ''
+				'Series' => 'list',
+			]
+		);
+		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+			'Streit.Seminar',
+			'Locations',
+			[
+				'Location' => 'list, show',
+			],
+			// non-cacheable actions
+			[
+				'Location' => 'list, show',
 			]
 		);
 

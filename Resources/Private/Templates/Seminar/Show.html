@@ -1,17 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
       data-namespace-typo3-fluid="true">
+
 <f:layout name="Default"/>
-<f:section name="main">
+
+<f:section name="Main">
     <div vocab="http://schema.org/" typeof="Course" resource="#course-{seminar.uid}" id="course-{seminar.uid}"
          class="seminar seminar--{seminar.section.title->f:format.case(mode:'lower')}">
 
         <div class="container row">
-
             <div class="mainColumn column column--two">
-
                 <header>
-
                     <n:format.nothing>
                         <n:titleTag>
                             <f:format.htmlentitiesDecode>{seminar.title}</f:format.htmlentitiesDecode>
@@ -24,30 +23,25 @@
                         <f:format.html parseFuncTSPath="">{seminar.subtitle}</f:format.html>
                     </p>
                     <meta property="author provider" resource="#brand">
-
                 </header>
-
                 <f:flashMessages/>
-
                 <div property="description">
                     <f:format.html parseFuncTSPath="">{seminar.teaser}</f:format.html>
                 </div>
-
                 <f:format.html parseFuncTSPath="">{seminar.description}</f:format.html>
-
                 <f:if condition="{seminar.audience}">
                     <h2>Zielgruppe</h2>
                     <f:format.html>{seminar.audience}</f:format.html>
                     <meta property="audience" content="{seminar.audience->f:format.stripTags()}"/>
                 </f:if>
-
             </div>
 
             <f:render partial="Seminar/Sidebar" arguments="{seminar: seminar}"/>
 
         </div>
-    </div>
-</f:section>
 
+    </div>
+
+</f:section>
 
 </html>
