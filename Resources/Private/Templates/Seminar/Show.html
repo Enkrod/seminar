@@ -2,35 +2,48 @@
       xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
-
 <f:section name="main">
-    <div vocab="http://schema.org/" typeof="Course" resource="#course-{seminar.uid}" id="course-{seminar.uid}" class="seminar seminar--{seminar.section.title->f:format.case(mode:'lower')}">
-        <header class="container">
-            <n:format.nothing>
-                <n:titleTag>
-                    <f:format.htmlentitiesDecode>{seminar.title}</f:format.htmlentitiesDecode>
-                </n:titleTag>
-                <f:render partial="Seminar/Opengraph" arguments="{seminar: seminar}"/>
-            </n:format.nothing>
-            <h1 class="pagetitle" property="name">{seminar.title}</h1>
-            <f:format.html parseFuncTSPath="">{seminar.subtitle}</f:format.html>
-            <meta property="author provider" resource="#brand">
-        </header>
+    <div vocab="http://schema.org/" typeof="Course" resource="#course-{seminar.uid}" id="course-{seminar.uid}"
+         class="seminar seminar--{seminar.section.title->f:format.case(mode:'lower')}">
+
         <div class="container row">
+
             <div class="mainColumn column column--two">
+
+                <header>
+
+                    <n:format.nothing>
+                        <n:titleTag>
+                            <f:format.htmlentitiesDecode>{seminar.title}</f:format.htmlentitiesDecode>
+                        </n:titleTag>
+                        <f:render partial="Seminar/Opengraph" arguments="{seminar: seminar}"/>
+                    </n:format.nothing>
+
+                    <h1 class="pagetitle" property="name">{seminar.title}</h1>
+                    <p>
+                        <f:format.html parseFuncTSPath="">{seminar.subtitle}</f:format.html>
+                    </p>
+                    <meta property="author provider" resource="#brand">
+
+                </header>
+
                 <f:flashMessages/>
+
                 <div property="description">
                     <f:format.html parseFuncTSPath="">{seminar.teaser}</f:format.html>
                 </div>
+
                 <f:format.html parseFuncTSPath="">{seminar.description}</f:format.html>
-                <h2>Zielgruppe</h2>
-                <f:format.html>{seminar.audience}</f:format.html>
-                <meta property="audience" content="{seminar.audience->f:format.stripTags()}" />
+
+                <f:if condition="{seminar.audience}">
+                    <h2>Zielgruppe</h2>
+                    <f:format.html>{seminar.audience}</f:format.html>
+                    <meta property="audience" content="{seminar.audience->f:format.stripTags()}"/>
+                </f:if>
 
             </div>
 
             <f:render partial="Seminar/Sidebar" arguments="{seminar: seminar}"/>
-
 
         </div>
     </div>
